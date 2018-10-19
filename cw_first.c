@@ -10,4 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./inc/op.h"
 
+void	open_file(t_c *ptr)
+{
+
+}
+
+int		main(int argc, char **argv)
+{
+	t_c *ptr;
+
+	if (argc == 2)
+		open_file(ptr);
+	else
+		ft_printf("%s\n", "Usage: ./asm <sourcefile.s>");
+	return (0);
+}

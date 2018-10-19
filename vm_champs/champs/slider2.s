@@ -1,5 +1,5 @@
+.comment	"And the winner is .."
 .name		"Sliders"
-.comment	"And the winner is ..."
 		sti r1,%:leon_live,%1
 		sti	r1,%:fork1,%1
 		sti	r1,%:fork2,%1
