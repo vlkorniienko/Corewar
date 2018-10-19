@@ -13,35 +13,53 @@
 //#include "./inc/op.h"
 #include "./inc/core.h"
 
-void	start_reading(t_c *p)
+void	get_file(t_c *p)
 {
-	int i;
+	char 	buff[READ_SIZE + 1];
+	int 	ret;
+	char	*temp;
 
-	i = 0;
-	while (get_next_line(fd, &(p->line)) > 0 && ++i)
+	p->file = ft_strnew(0);
+	while ((ret = read(p->fd, buff, READ_SIZE)))
 	{
-		if (i == 1)
-		{
-			
-		}
+		buff[ret] = '\0';
+		temp = p->file;
+		p->file = ft_strjoin(p->file, buff);
+		free(temp);
 	}
+	close(p->fd);
+	writeBotName(p);
 }
+
+// void	start_reading(t_c *p)
+// {
+// 	while (get_next_line(p->fd, &(p->line)) > 0)
+// 	{
+// 		if ((p->comm = ft_strchr(line, '#')))
+// 			free(line);
+// 		else if (strcmp(line, "name.") == 0)
+// 			writeBotName(line, p);
+// 		else if (strcmp(line, "comment.") == 0)
+// 			write_comment(line, p);
+// 	}
+// }
 
 void	check_file_name(char *str, t_c *p)
 {
 	char *tmp;
 
 	p->f_name = NULL;
-	//p->f_name = (char *)malloc(sizeof(char) * ft_strlen(str) + 4);
 	p->f_name = ft_strsub(str, 0, ft_strlen(str) - 2);
+	tmp = p->f_name;
 	p->f_name = ft_strjoin(p->f_name, ".cor");
+	free(tmp);
 	ft_printf("file name = %s\n", p->f_name);
-	start_reading(p);
+	//start_reading(p);
 }
 
 void	open_file(t_c *ptr, char *str)
 {
-	char 	*p;
+	char *p;
 
 	if ((p = ft_strchr(str, '.')))
 	{
@@ -49,14 +67,11 @@ void	open_file(t_c *ptr, char *str)
 		{
 			ptr->fd = open(str, O_RDONLY);
 			if (ptr->fd < 0)
-			{
-				ft_printf("%s\n", "Error: can't open file");
-				exit (0);
-			}
+				error(1);
+			get_file(ptr);
 			check_file_name(str, ptr);
 		}
-	}
-		
+	}	
 }
 
 int		main(int argc, char **argv)
