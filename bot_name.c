@@ -40,7 +40,7 @@ void	write_comment(t_c *p)
 			p->file[i + 2] == 'o' && p->file[i + 3] == 'm'
 			&& p->file[i + 4] == 'm' && p->file[i + 5] == 'e'
 			&& p->file[i + 6] == 'n' && p->file[i + 7] == 't')
-			break;
+			break ;
 		i++;
 	}
 	while (p->file[i] != '\"')
@@ -56,8 +56,8 @@ void	write_comment(t_c *p)
 
 void	write_name_cont(t_c *p, int i, int count)
 {
-	int j;
-	char *needle;
+	int		j;
+	char	*needle;
 
 	j = 0;
 	if (count > 128)
@@ -77,21 +77,25 @@ void	write_name_cont(t_c *p, int i, int count)
 		error(4);
 }
 
-void	writeBotName(t_c *p)
+void	write_bot_name(t_c *p)
 {
-	int 	i;
+	int		i;
 	int		count;
 	int		tmp;
-	char 	*needle;
+	char	*needle;
 
 	i = 0;
 	count = 0;
 	if ((needle = ft_strstr(p->file, ".name")))
 	{
-		while (p->file[i] != '.' && p->file[i + 1] != 'n' &&
-			p->file[i + 2] != 'a' && p->file[i + 3] != 'm'
-			&& p->file[i + 4] != 'e')
+		while (p->file[i])
+		{
+			if (p->file[i] == '.' && p->file[i + 1] == 'n' &&
+				p->file[i + 2] == 'a' && p->file[i + 3] == 'm'
+				&& p->file[i + 4] == 'e')
+				break ;
 			i++;
+		}
 		while (p->file[i] != '\"')
 			i++;
 		while (p->file[++tmp] != '\"')

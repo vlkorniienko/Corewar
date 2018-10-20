@@ -30,7 +30,7 @@ typedef struct		s_c
 	char			*comm;
 }					t_c;
 
-void				writeBotName(t_c *p);
+void				write_bot_name(t_c *p);
 void				error(int i);
 
 #endif

@@ -15,8 +15,8 @@
 
 void	get_file(t_c *p)
 {
-	char 	buff[READ_SIZE + 1];
-	int 	ret;
+	char	buff[READ_SIZE + 1];
+	int		ret;
 	char	*temp;
 
 	p->file = ft_strnew(0);
@@ -71,7 +71,7 @@ void	open_file(t_c *ptr, char *str)
 			get_file(ptr);
 			check_file_name(str, ptr);
 		}
-	}	
+	}
 }
 
 int		main(int argc, char **argv)
