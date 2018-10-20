@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "./inc/op.h"
 #include "./inc/core.h"
 
 void	get_file(t_c *p)
@@ -28,7 +27,7 @@ void	get_file(t_c *p)
 		free(temp);
 	}
 	close(p->fd);
-	writeBotName(p);
+	write_bot_name(p);
 }
 
 // void	start_reading(t_c *p)
