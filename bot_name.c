@@ -40,7 +40,8 @@ void	write_comment(t_c *p)
 		if (p->file[i] == '.' && p->file[i + 1] == 'c' &&
 			p->file[i + 2] == 'o' && p->file[i + 3] == 'm'
 			&& p->file[i + 4] == 'm' && p->file[i + 5] == 'e'
-			&& p->file[i + 6] == 'n' && p->file[i + 7] == 't')
+			&& p->file[i + 6] == 'n' && p->file[i + 7] == 't' 
+			&& (is_comment(p, i)))
 			break ;
 		i++;
 	}
@@ -93,7 +94,7 @@ void	write_bot_name(t_c *p)
 		{
 			if (p->file[i] == '.' && p->file[i + 1] == 'n' &&
 				p->file[i + 2] == 'a' && p->file[i + 3] == 'm'
-				&& p->file[i + 4] == 'e')
+				&& p->file[i + 4] == 'e' && (is_comment(p, i)))
 				break ;
 			i++;
 		}
@@ -119,5 +120,7 @@ void	error(int i)
 		ft_printf("%s\n", "Error: there is no comment");
 	else if (i == 5)
 		ft_printf("%s\n", "Error: comment is to long");
+	else if (i == 6)
+		ft_printf("%s\n", "Error: there is no such command");
 	exit(0);
 }

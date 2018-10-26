@@ -60,19 +60,6 @@ void	get_file(t_c *p)
 	write_bot_name(p);
 }
 
-// void	start_reading(t_c *p)
-// {
-// 	while (get_next_line(p->fd, &(p->line)) > 0)
-// 	{
-// 		if ((p->comm = ft_strchr(line, '#')))
-// 			free(line);
-// 		else if (strcmp(line, "name.") == 0)
-// 			writeBotName(line, p);
-// 		else if (strcmp(line, "comment.") == 0)
-// 			write_comment(line, p);
-// 	}
-// }
-
 void	check_file_name(char *str, t_c *p)
 {
 	char *tmp;
@@ -83,7 +70,7 @@ void	check_file_name(char *str, t_c *p)
 	p->f_name = ft_strjoin(p->f_name, ".cor");
 	free(tmp);
 	ft_printf("file name = %s\n", p->f_name);
-	//start_reading(p);
+	start_reading(p, str);
 }
 
 void	open_file(t_c *ptr, char *str)

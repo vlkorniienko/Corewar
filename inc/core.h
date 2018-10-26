@@ -32,5 +32,7 @@ typedef struct		s_c
 
 void				write_bot_name(t_c *p);
 void				error(int i);
+int					is_comment(t_c *p, int i);
+void				start_reading(t_c *p, char *str);
 
 #endif

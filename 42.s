@@ -1,4 +1,6 @@
+#.name			"911"
 .name 			"42"
+#.comment        "Program"
 .comment        "Just a basic Winner Program"
 
 entree:	live	%42		# entree
