@@ -28,7 +28,27 @@ typedef struct		s_c
 	char			player_n[128];
 	char			comment[2048];
 	char			*comm;
+	char			*c;
+	char			flag;
 }					t_c;
+
+typedef struct 		s_label
+{
+	char			*label;
+	struct s_label	*next;
+}					t_label;
+
+typedef struct		s_cmd
+{
+	int 			number;
+	t_label			*label;
+	unsigned int 	arg1;	
+	unsigned int 	arg2;	
+	unsigned int 	arg3;	
+	int 			comm_s;
+	struct s_cmd	*next;
+}					t_cmd;
+
 
 void				write_bot_name(t_c *p);
 void				error(int i);
