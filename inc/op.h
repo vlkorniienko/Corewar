@@ -77,9 +77,9 @@ typedef struct					s_header
 
 typedef struct					s_arg
 {
-	int							arg1[3];
-	int							arg2[3];
-	int							arg3[3];
+	char						arg1[3];
+	char						arg2[3];
+	char						arg3[3];
 }								t_arg;
 
 typedef struct					s_op
@@ -87,6 +87,7 @@ typedef struct					s_op
 	char						*c_name;
 	int							n_arg;
 	t_arg						args;
+	int							tdir_s;
 	int							op_code;
 	int							cycles;
 	char						*description;

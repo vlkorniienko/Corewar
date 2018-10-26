@@ -25,7 +25,6 @@ void	write_comment_cont(t_c *p, int i, int count)
 	p->comment[j] = '\0';
 	ft_printf("comment = %s\n", p->comment);
 	ft_printf("p[0]->c_name = %s\n", g_optab[0].c_name);
-	ft_printf("p[0]->c_name = %d\n", g_optab[0].args.arg1[1]);
 }
 
 void	write_comment(t_c *p)
