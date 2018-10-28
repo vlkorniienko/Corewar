@@ -12,7 +12,7 @@
 
 #include "./inc/core.h"
 
-void	write_comment_cont(t_c *p, int i, int count)
+void	write_comment_cont(t_c *p, int i)
 {
 	int j;
 
@@ -53,7 +53,7 @@ void	write_comment(t_c *p)
 	if (count > 2048)
 		error(5);
 	else
-		write_comment_cont(p, i, count);
+		write_comment_cont(p, i);
 }
 
 void	write_name_cont(t_c *p, int i, int count)
@@ -79,14 +79,13 @@ void	write_name_cont(t_c *p, int i, int count)
 		error(4);
 }
 
-void	write_bot_name(t_c *p)
+void	write_bot_name(t_c *p, int i)
 {
-	int		i;
 	int		count;
 	int		tmp;
 	char	*needle;
 
-	i = 0;
+	tmp = 0;
 	count = 0;
 	if ((needle = ft_strstr(p->file, ".name")))
 	{
@@ -122,5 +121,7 @@ void	error(int i)
 		ft_printf("%s\n", "Error: comment is to long");
 	else if (i == 6)
 		ft_printf("%s\n", "Error: there is no such command");
+	else if (i == 7)
+		ft_printf("%s\n", "Lexical error at [3:1]");
 	exit(0);
 }

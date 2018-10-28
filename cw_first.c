@@ -39,7 +39,7 @@ t_op	g_optab[17] =
 	{"lfork", 1, {{0, 1, 0}, {0, 0, 0}, {0, 0, 0}}, 2, 15, 1000, "long fork",
 		0, 2},
 	{"aff", 1, {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}}, 4, 16, 2, "aff", 1, 4},
-	{0, 0, {0}, 0, 0, 0, 0, 0}
+	{0, 0, {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}}, 0, 0, 0, 0, 0, 0}
 };
 
 void	get_file(t_c *p)
@@ -57,7 +57,7 @@ void	get_file(t_c *p)
 		free(temp);
 	}
 	close(p->fd);
-	write_bot_name(p);
+	write_bot_name(p, 0);
 }
 
 void	check_file_name(char *str, t_c *p)

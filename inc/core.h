@@ -50,9 +50,10 @@ typedef struct		s_cmd
 }					t_cmd;
 
 
-void				write_bot_name(t_c *p);
+void				write_bot_name(t_c *p, int i);
 void				error(int i);
 int					is_comment(t_c *p, int i);
 void				start_reading(t_c *p, char *str);
+void				find_dot(t_c *p);
 
 #endif

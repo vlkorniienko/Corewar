@@ -28,15 +28,29 @@ void	read_command(t_c *p, int i)
 	t_cmd	*cmd;
 
 	if (p->flag == 48)
+	{
 		cmd = (t_cmd *)malloc(sizeof(t_cmd));
-	ft_bzero(cmd, sizeof(cmd));
+		p->flag = 49;
+	}
+	i++;
+	//ft_bzero(cmd, sizeof(cmd));
 }
 
-void	reading_map(t_c *p)
+void	reading_map(t_c *p, int k, int c)
 {
-	int i;
+	int 	i;
+	char 	*ptr;
 
 	i = 0;
+	if ((ptr = ft_strchr(p->line, '.')))
+	{
+		while (p->line[k] != '.')
+			k++;
+		while (p->line[c] != '#')
+			c++;
+		if (k < c)
+			error(7);
+	}
 	while (i < 16)
 	{
 		if ((ft_strstr(p->line, g_optab[i].c_name)))
@@ -81,8 +95,7 @@ void	start_reading(t_c *p, char *str)
 		error(1);
 	while (get_next_line(p->fd, &(p->line)) > 0)
 	{
-		if ((p->line[0] == '#' || strstr(p->line, ".name"))
-			|| strstr(p->line, ".extend"))
+		if (p->line[0] == '#' || strstr(p->line, ".name"))
 			free(p->line);
 		else if (strstr(p->line, ".comment"))
 			check_if_finish(p);

@@ -2,6 +2,7 @@
 .name 			"42"
 #.comment        "Program"
 .comment        "Just a basic Winner Program"
+#.extend
 
 entree:	live	%42		# entree
 	ld	%0,r5
