@@ -1,9 +1,11 @@
 #.name			"911"
+#fgfgfg
 .name 			"42"
 #.comment        "Program"
 .comment        "Just a basic Winner Program"
 #.extend
 
+hello: live r4  privet.
 entree:	live	%42		# entree
 	ld	%0,r5
 	ld	%0,r5

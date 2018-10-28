@@ -123,5 +123,7 @@ void	error(int i)
 		ft_printf("%s\n", "Error: there is no such command");
 	else if (i == 7)
 		ft_printf("%s\n", "Lexical error at [3:1]");
+	else if (i == 8)
+		ft_printf("%s\n", "Syntax error at token [TOKEN][004:001]");
 	exit(0);
 }

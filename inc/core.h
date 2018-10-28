@@ -32,7 +32,7 @@ typedef struct		s_c
 	char			flag;
 }					t_c;
 
-typedef struct 		s_label
+typedef struct		s_label
 {
 	char			*label;
 	struct s_label	*next;
@@ -40,20 +40,22 @@ typedef struct 		s_label
 
 typedef struct		s_cmd
 {
-	int 			number;
+	int				number;
 	t_label			*label;
-	unsigned int 	arg1;	
-	unsigned int 	arg2;	
-	unsigned int 	arg3;	
-	int 			comm_s;
+	unsigned int	arg1;
+	unsigned int	arg2;
+	unsigned int	arg3;
+	int				c_size;
+	int				comm_s;
 	struct s_cmd	*next;
 }					t_cmd;
-
 
 void				write_bot_name(t_c *p, int i);
 void				error(int i);
 int					is_comment(t_c *p, int i);
 void				start_reading(t_c *p, char *str);
 void				find_dot(t_c *p);
+void				double_check(t_c *p, int *i);
+int					empty_string(t_c *p, int i);
 
 #endif
