@@ -25,15 +25,15 @@ int		is_comment(t_c *p, int i)
 	return (1);
 }
 
-void	read_command(t_c *p, int i, int k)
+void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 {
-	t_cmd	*cmd;
 	char	*ptr;
+	char	*p2;
 
-	if (p->flag == 48)
+	if (!cmd)
 	{
 		cmd = (t_cmd *)malloc(sizeof(t_cmd));
-		p->flag++;
+		cmd->next = NULL;
 	}
 	double_check(p, &i);
 	if (p->line[k] == '\t' || p->line[k] == ' ')
@@ -44,15 +44,16 @@ void	read_command(t_c *p, int i, int k)
 			return ;
 	}
 	ptr = ft_strstr(p->line, g_optab[i].c_name);
-	printf("line = %s\n", p->line);
-	printf("strlen = %d\n", ft_strlen(g_optab[i].c_name));
-	printf("pidstroka = %s\n", g_optab[i].c_name);
 	if ((*(ptr + ft_strlen(g_optab[i].c_name)) != '\t') &&
 		(*(ptr + ft_strlen(g_optab[i].c_name)) != ' '))
 		error(8);
+	if (p->flag == 49)
+		make_new_cmd(cmd);
+	if ((p2 = ft_strchr(p->line, ':')))
+		if (label_exist(p))
 }
 
-void	reading_map(t_c *p, int i)
+void	reading_map(t_c *p, int i, t_cmd *c)
 {
 	char	*ptr;
 
@@ -66,14 +67,14 @@ void	reading_map(t_c *p, int i)
 			error(7);
 	while (++i < 17)
 	{
+		if (i == 16)
+			error(6);
 		if ((ft_strstr(p->line, g_optab[i].c_name)))
 		{
-			read_command(p, i, 0);
+			read_command(p, i, 0, c);
 			break ;
 		}
 	}
-	if (i == 16)
-		error(6);
 }
 
 void	check_if_finish(t_c *p)
@@ -102,6 +103,9 @@ void	check_if_finish(t_c *p)
 
 void	start_reading(t_c *p, char *str)
 {
+	t_cmd	*cmd;
+
+	cmd = NULL;
 	p->fd = open(str, O_RDONLY);
 	if (p->fd < 0)
 		error(1);
@@ -114,6 +118,6 @@ void	start_reading(t_c *p, char *str)
 		else if (!ft_strcmp(p->line, ""))
 			free(p->line);
 		else
-			reading_map(p, -1);
+			reading_map(p, -1, cmd);
 	}
 }

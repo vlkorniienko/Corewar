@@ -78,11 +78,25 @@ int		empty_string(t_c *p, int i)
 
 int		check_point(t_c *p, int k, int c)
 {
+	char *ptr;
+
 	while (p->line[k] != '.')
 			k++;
-		printf("k---------------------------------- = %d\n", k);
-		while (p->line[c] != '#')
-			c++;
-		printf("c = %d\n", c);
-		(k < c) ? error(7) : k++;
+	if (!(ptr = ft_strchr(p->line, '#')))
+		return (0);
+	while (p->line[c] != '#')
+		c++;
+	if (k < c)
+		return (0);
+	else
+		return (1);
+}
+
+int		label_exist(t_c *p)
+{
+	int i;
+
+	i = 0;
+	while (p->line[i] != ':')
+		i++;
 }

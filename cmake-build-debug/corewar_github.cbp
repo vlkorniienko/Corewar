@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="corewar_github"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/vkorniie/corewar_github/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/vkorniie/corewar_github/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/vkorniie/corewar_github/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corewar_github">
+				<Option output="/Users/vkorniie/corewar_github/cmake-build-debug/corewar_github" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vkorniie/corewar_github/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vkorniie/corewar_github/inc"/>
+					<Add directory="/Users/vkorniie/corewar_github/libft/includes"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 corewar_github"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corewar_github/fast">
+				<Option output="/Users/vkorniie/corewar_github/cmake-build-debug/corewar_github" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vkorniie/corewar_github/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vkorniie/corewar_github/inc"/>
+					<Add directory="/Users/vkorniie/corewar_github/libft/includes"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 corewar_github/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vkorniie/corewar_github/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/vkorniie/corewar_github/42.s">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/Gagnant.s">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/bot_name.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/cw_first.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/inc/core.h">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/inc/op.h">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/counters.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_atoi.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_atoi_ptr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_atointmxt.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_bzero.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_count_word.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_isalnum.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_isalpha.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_isascii.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_isdigit.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_isprime.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_isprint.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_itoa.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_lstadd.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_lstdel.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_lstdelone.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_lstiter.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_lstmap.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_lstnew.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memalloc.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memccpy.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memchr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memcmp.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memcpy.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memdel.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memmove.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_memset.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_nextprime.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_printf.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putchar.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putchar_fd.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putendl.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putendl_fd.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putnbr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putnbr_fd.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putnstr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putstr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_putstr_fd.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_range.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_splitdel.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strcat.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strchr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strclr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strcmp.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strcpy.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strdel.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strdup.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strequ.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_striter.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_striteri.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strjoin.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strlcat.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strlen.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strmap.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strmapi.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strncat.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strncmp.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strncpy.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strnequ.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strnew.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strnjoin.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strnstr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strrchr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strrev.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strsplit.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strstr.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strsub.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_strtrim.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_swap.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_tolower.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/ft_toupper.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/get_next_line.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/includes/libft.h">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/print_dc.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/print_puox.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/print_str.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/print_unicode.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/libft/prints.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/reading_next.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/start_reading.c">
+			<Option target="corewar_github"/>
+		</Unit>
+		<Unit filename="/Users/vkorniie/corewar_github/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
