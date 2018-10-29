@@ -92,11 +92,9 @@ int		check_point(t_c *p, int k, int c)
 		return (1);
 }
 
-int		label_exist(t_c *p)
+void	write_label(t_c *p, t_cmd *c)
 {
-	int i;
-
-	i = 0;
-	while (p->line[i] != ':')
-		i++;
+	ft_printf("hellloooooooo\n");
+	ft_printf("line = %s\n", p->line);
+	exit(0);
 }

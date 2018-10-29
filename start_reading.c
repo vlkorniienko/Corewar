@@ -28,11 +28,11 @@ int		is_comment(t_c *p, int i)
 void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 {
 	char	*ptr;
-	char	*p2;
 
 	if (!cmd)
 	{
 		cmd = (t_cmd *)malloc(sizeof(t_cmd));
+		cmd->c_size = -42;
 		cmd->next = NULL;
 	}
 	double_check(p, &i);
@@ -47,15 +47,15 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 	if ((*(ptr + ft_strlen(g_optab[i].c_name)) != '\t') &&
 		(*(ptr + ft_strlen(g_optab[i].c_name)) != ' '))
 		error(8);
-	if (p->flag == 49)
-		make_new_cmd(cmd);
-	if ((p2 = ft_strchr(p->line, ':')))
-		if (label_exist(p))
+	if (cmd->c_size != -42)
+	 	make_new_cmd(cmd);
+	check_label(p, cmd);
 }
 
 void	reading_map(t_c *p, int i, t_cmd *c)
 {
 	char	*ptr;
+	char	*p2;
 
 	if (!empty_string(p, 0))
 	{
@@ -67,8 +67,10 @@ void	reading_map(t_c *p, int i, t_cmd *c)
 			error(7);
 	while (++i < 17)
 	{
-		if (i == 16)
+		if (i == 16 && !(p2 = ft_strchr(p->line, ':')))
 			error(6);
+		if (i == 16 && (p2 = ft_strchr(p->line, ':')))
+			start_label(p, cmd);
 		if ((ft_strstr(p->line, g_optab[i].c_name)))
 		{
 			read_command(p, i, 0, c);

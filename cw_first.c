@@ -95,7 +95,6 @@ int		main(int argc, char **argv)
 	t_c *ptr;
 
 	ptr = (t_c *)malloc(sizeof(t_c));
-	p->flag = 48;
 	if (argc == 2)
 		open_file(ptr, argv[1]);
 	else

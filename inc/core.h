@@ -29,7 +29,6 @@ typedef struct		s_c
 	char			comment[2048];
 	char			*comm;
 	char			*c;
-	char			flag;
 }					t_c;
 
 typedef struct		s_label
@@ -58,5 +57,7 @@ void				find_dot(t_c *p);
 void				double_check(t_c *p, int *i);
 int					empty_string(t_c *p, int i);
 int					check_point(t_c *p, int k, int c);
+void				check_label(t_c *p, t_cmd *c);
+void				write_label(t_c *p, t_cmd *c);
 
 #endif
