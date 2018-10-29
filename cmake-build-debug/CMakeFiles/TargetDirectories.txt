@@ -1,3 +1,0 @@
-/Users/vkorniie/corewar_github/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/vkorniie/corewar_github/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/vkorniie/corewar_github/cmake-build-debug/CMakeFiles/corewar_github.dir
