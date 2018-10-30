@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/core.h"
+#include "../inc/core.h"
 
 int		is_comment(t_c *p, int i)
 {
@@ -32,7 +32,7 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 	if (!cmd)
 	{
 		cmd = (t_cmd *)malloc(sizeof(t_cmd));
-		cmd->c_size = -42;
+		cmd->cmd_s = -42;
 		cmd->next = NULL;
 	}
 	double_check(p, &i);
@@ -47,7 +47,7 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 	if ((*(ptr + ft_strlen(g_optab[i].c_name)) != '\t') &&
 		(*(ptr + ft_strlen(g_optab[i].c_name)) != ' '))
 		error(8);
-	if (cmd->c_size != -42)
+	if (cmd->cmd_s != -42)
 	 	make_new_cmd(cmd);
 	check_label(p, cmd);
 }
@@ -70,7 +70,7 @@ void	reading_map(t_c *p, int i, t_cmd *c)
 		if (i == 16 && !(p2 = ft_strchr(p->line, ':')))
 			error(6);
 		if (i == 16 && (p2 = ft_strchr(p->line, ':')))
-			start_label(p, cmd);
+			start_label(p, c);
 		if ((ft_strstr(p->line, g_optab[i].c_name)))
 		{
 			read_command(p, i, 0, c);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/core.h"
+#include "../inc/core.h"
 
 void	write_comment_cont(t_c *p, int i)
 {
@@ -24,7 +24,6 @@ void	write_comment_cont(t_c *p, int i)
 	}
 	p->comment[j] = '\0';
 	ft_printf("comment = %s\n", p->comment);
-	ft_printf("p[0]->c_name = %s\n", g_optab[0].c_name);
 }
 
 void	write_comment(t_c *p)

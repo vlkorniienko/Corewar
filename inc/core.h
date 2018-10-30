@@ -29,6 +29,7 @@ typedef struct		s_c
 	char			comment[2048];
 	char			*comm;
 	char			*c;
+	t_label			*tmp;
 }					t_c;
 
 typedef struct		s_label
@@ -44,8 +45,8 @@ typedef struct		s_cmd
 	unsigned int	arg1;
 	unsigned int	arg2;
 	unsigned int	arg3;
-	int				c_size;
-	int				comm_s;
+	int				cmd_s;
+	int				codage;
 	struct s_cmd	*next;
 }					t_cmd;
 
@@ -59,5 +60,7 @@ int					empty_string(t_c *p, int i);
 int					check_point(t_c *p, int k, int c);
 void				check_label(t_c *p, t_cmd *c);
 void				write_label(t_c *p, t_cmd *c);
+void				make_new_cmd(t_cmd *cmd);
+void				start_label(t_c *p, t_cmd *c);
 
 #endif

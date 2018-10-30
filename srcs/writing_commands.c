@@ -10,26 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/core.h"
-
-void	check_label(t_c *p, t_cmd *c)	
-{
-	char *p2;
-
-	if ((p2 = ft_strchr(p->line, ':')))
-		if (*(p2 - 1) != '%')
-			write_label(p, c);
-}
-
-void	start_label(t_c *p, t_cmd *c)
-{
-	if (!c)
-	{
-		cmd = (t_cmd *)malloc(sizeof(t_cmd));
-		cmd->c_size = -42;
-		cmd->next = NULL;
-	}
-}
+#include "../inc/core.h"
 
 void	make_new_cmd(t_cmd *cmd)
 {
@@ -41,5 +22,39 @@ void	make_new_cmd(t_cmd *cmd)
 	while (tmp)
 		tmp = tmp->next;
 	tmp->next = new;
-	new = new->next;
+	new->next = NULL;
+}
+
+void	check_label(t_c *p, t_cmd *c)	
+{
+	char *p2;
+
+	if ((p2 = ft_strchr(p->line, ':')))
+		if (*(p2 - 1) != '%')
+			write_label(p, c);
+}
+
+void	make_label(t_c *p)
+{
+	t_c *new;
+	t_c *tmp;
+
+	new = (t_label *)malloc(sizeof(t_label));
+	while (tmp)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->next = NULL;
+}
+
+void	start_label(t_c *p)
+{
+	t_label *l;
+
+	if (!p->tmp)
+	{
+		l = (t_label *)malloc(sizeof(t_label));
+		p->tmp = l;
+	}
+	else
+		make_label(p);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/core.h"
+#include "../inc/core.h"
 
 void	double_check_n(t_c *p, int *i)
 {
