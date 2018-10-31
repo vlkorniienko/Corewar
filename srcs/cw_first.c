@@ -87,7 +87,11 @@ void	open_file(t_c *ptr, char *str)
 			get_file(ptr);
 			check_file_name(str, ptr);
 		}
+		else
+			error()
 	}
+	else
+		error(10);
 }
 
 int		main(int argc, char **argv)

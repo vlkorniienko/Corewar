@@ -49,7 +49,7 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 		error(8);
 	if (cmd->cmd_s != -42)
 	 	make_new_cmd(cmd);
-	check_label(p, cmd);
+	check_label(p, cmd, i);
 }
 
 void	reading_map(t_c *p, int i, t_cmd *c)
@@ -70,7 +70,10 @@ void	reading_map(t_c *p, int i, t_cmd *c)
 		if (i == 16 && !(p2 = ft_strchr(p->line, ':')))
 			error(6);
 		if (i == 16 && (p2 = ft_strchr(p->line, ':')))
-			start_label(p, c);
+		{
+			start_label(p, 0);
+			break ; 
+		}
 		if ((ft_strstr(p->line, g_optab[i].c_name)))
 		{
 			read_command(p, i, 0, c);
@@ -108,6 +111,7 @@ void	start_reading(t_c *p, char *str)
 	t_cmd	*cmd;
 
 	cmd = NULL;
+	p->cmd_p = cmd;
 	p->fd = open(str, O_RDONLY);
 	if (p->fd < 0)
 		error(1);

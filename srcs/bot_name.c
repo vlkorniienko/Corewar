@@ -124,5 +124,9 @@ void	error(int i)
 		ft_printf("%s\n", "Lexical error at [3:1]");
 	else if (i == 8)
 		ft_printf("%s\n", "Syntax error at token [TOKEN][004:001]");
+	else if (i == 9)
+		ft_printf("%s\n", "Syntax error at token label");
+	else if (i == 10)
+		ft_printf("%s\n", "Wrong file name");
 	exit(0);
 }
