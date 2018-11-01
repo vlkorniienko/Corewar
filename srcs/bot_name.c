@@ -128,5 +128,7 @@ void	error(int i)
 		ft_printf("%s\n", "Syntax error at token label");
 	else if (i == 10)
 		ft_printf("%s\n", "Wrong file name");
+	else if (i == 11)
+		ft_printf("%s\n", "Wrong command argument");
 	exit(0);
 }

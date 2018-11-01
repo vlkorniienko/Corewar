@@ -58,6 +58,8 @@ void	check_label(t_c *p, t_cmd *c, int i)
 		}
 		ft_printf("\n\n");
 	}
+	c->number = i;
+	validate_command(p, c);
 }
 
 void	make_label(t_c *p)

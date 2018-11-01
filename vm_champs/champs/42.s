@@ -6,7 +6,7 @@
 	zjmp	%:bite
 
 tir:	sti	r1,%:tirb,%1
-	ld	%2304,r10
+	ld	%2304, r 10
 	ld	%1,r5
 	ld	%0,r11
 

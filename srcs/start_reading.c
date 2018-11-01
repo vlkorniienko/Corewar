@@ -18,7 +18,7 @@ int		is_comment(t_c *p, int i)
 	{
 		if (p->file[i] == '\n')
 			break ;
-		if (p->file[i] == '#')
+		if (p->file[i] == '#' || p->file[i] == ';')
 			return (0);
 		i--;
 	}
@@ -42,7 +42,7 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 	{
 		while (p->line[k] == '\t' || p->line[k] == ' ')
 			k++;
-		if (p->line[k] == '#')
+		if (p->line[k] == '#' || p->line[k] == ';')
 			return ;
 	}
 	ptr = ft_strstr(p->line, g_optab[i].c_name);

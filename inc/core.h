@@ -29,7 +29,7 @@ typedef struct		s_args
 {
 	unsigned int 	ar_n;
 	char			*label;
-	int				size;
+	int				number;
 	struct s_args	*next;
 }					t_args;
 
@@ -70,5 +70,6 @@ void				write_label(t_c *p, t_cmd *c);
 void				make_new_cmd(t_cmd *cmd);
 void				start_label(t_c *p, int k);
 void				write_label_str(t_c *p, t_cmd *c, t_label *new, int i);
+void				validate_command(t_c *p, t_cmd *c);
 
 #endif

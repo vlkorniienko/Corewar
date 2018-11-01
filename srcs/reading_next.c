@@ -79,12 +79,15 @@ int		empty_string(t_c *p, int i)
 int		check_point(t_c *p, int k, int c)
 {
 	char *ptr;
+	char *ptr2;
 
 	while (p->line[k] != '.')
 		k++;
 	if (!(ptr = ft_strchr(p->line, '#')))
 		return (0);
-	while (p->line[c] != '#')
+	if (!(ptr2 = ft_strchr(p->line, ';')))
+		return (0);
+	while (p->line[c] != '#' || p->line[c] != ';')
 		c++;
 	if (k < c)
 		return (0);
