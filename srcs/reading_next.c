@@ -81,7 +81,7 @@ int		check_point(t_c *p, int k, int c)
 	char *ptr;
 
 	while (p->line[k] != '.')
-			k++;
+		k++;
 	if (!(ptr = ft_strchr(p->line, '#')))
 		return (0);
 	while (p->line[c] != '#')
@@ -94,12 +94,27 @@ int		check_point(t_c *p, int k, int c)
 
 void	write_label(t_c *p, t_cmd *c)
 {
-	int i;
-	int k;
+	int		i;
+	t_label *new;
+	t_label *tmp2;
 
 	i = 0;
-	k = 0;
 	while (p->line[i] == ' ' || p->line[i] == '\t')
 		i++;
-	if (p->tmp)
+	if (!p->tmp)
+	{
+		new = (t_label *)malloc(sizeof(t_label));
+		new->next = NULL;
+		write_label_str(p, c, new, i);
+	}
+	else
+	{
+		tmp2 = p->tmp;
+		while (tmp2->next)
+			tmp2 = tmp2->next;
+		new = (t_label *)malloc(sizeof(t_label));
+		new->next = NULL;
+		tmp2->next = new;
+		write_label_str(p, c, new, i);
+	}
 }

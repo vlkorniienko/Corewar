@@ -69,5 +69,6 @@ void				check_label(t_c *p, t_cmd *c, int i);
 void				write_label(t_c *p, t_cmd *c);
 void				make_new_cmd(t_cmd *cmd);
 void				start_label(t_c *p, int k);
+void				write_label_str(t_c *p, t_cmd *c, t_label *new, int i);
 
 #endif

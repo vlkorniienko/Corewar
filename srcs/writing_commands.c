@@ -23,21 +23,41 @@ void	make_new_cmd(t_cmd *cmd)
 		tmp = tmp->next;
 	tmp->next = new;
 	new->next = NULL;
+	new->label = NULL;
+	new->args = NULL;
 }
 
-void	check_label(t_c *p, t_cmd *c, int i)	
+void	check_label(t_c *p, t_cmd *c, int i)
 {
-	char 	*p2;
-	t_cmd 	*temp;
+	char	*p2;
+	t_cmd	*temp;
 
 	if (c->cmd_s != -42)
 		make_new_cmd(c);
 	temp = c;
-	while (temp)
+	while (temp->next)
 		temp = temp->next;
 	if ((p2 = ft_strchr(p->line, ':')))
+	{
 		if (*(p2 - 1) != '%')
 			write_label(p, c);
+	}
+	else if (p->tmp)
+	{
+		c->label = p->tmp;
+		p->tmp = NULL;
+	}
+	ft_printf("command = %s\n", g_optab[i].c_name);
+	if (c->label)
+	{
+		t_label *ddt = c->label;
+		while(ddt)
+		{
+			ft_printf("label = %s\n", ddt->label);
+			ddt = ddt->next;
+		}
+		ft_printf("\n\n");
+	}
 }
 
 void	make_label(t_c *p)
@@ -79,7 +99,7 @@ void	start_label(t_c *p, int k)
 {
 	t_label *l;
 	t_label *tp;
-	int i;
+	int		i;
 
 	i = 0;
 	if (!is_str_label(p))
@@ -101,5 +121,5 @@ void	start_label(t_c *p, int k)
 		k++;
 	k -= i;
 	tp->label = ft_strsub(p->line, i, k);
-	ft_printf("label = %s\n", tp->label);
+	//ft_printf("label = %s\n", tp->label);
 }

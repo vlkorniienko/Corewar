@@ -39,7 +39,7 @@ void	write_comment(t_c *p)
 		if (p->file[i] == '.' && p->file[i + 1] == 'c' &&
 			p->file[i + 2] == 'o' && p->file[i + 3] == 'm'
 			&& p->file[i + 4] == 'm' && p->file[i + 5] == 'e'
-			&& p->file[i + 6] == 'n' && p->file[i + 7] == 't' 
+			&& p->file[i + 6] == 'n' && p->file[i + 7] == 't'
 			&& (is_comment(p, i)))
 			break ;
 		i++;
