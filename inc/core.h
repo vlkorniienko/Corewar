@@ -30,7 +30,7 @@ typedef struct		s_args
 	unsigned int 	ar_n;
 	char			*label;
 	int				size;
-	s_args			*next;
+	struct s_args	*next;
 }					t_args;
 
 typedef struct		s_cmd

@@ -88,7 +88,7 @@ void	open_file(t_c *ptr, char *str)
 			check_file_name(str, ptr);
 		}
 		else
-			error()
+			error(10);
 	}
 	else
 		error(10);

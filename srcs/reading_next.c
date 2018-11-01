@@ -94,7 +94,12 @@ int		check_point(t_c *p, int k, int c)
 
 void	write_label(t_c *p, t_cmd *c)
 {
-	ft_printf("hellloooooooo\n");
-	ft_printf("line = %s\n", p->line);
-	exit(0);
+	int i;
+	int k;
+
+	i = 0;
+	k = 0;
+	while (p->line[i] == ' ' || p->line[i] == '\t')
+		i++;
+	if (p->tmp)
 }

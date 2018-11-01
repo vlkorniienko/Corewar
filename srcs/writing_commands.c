@@ -27,8 +27,14 @@ void	make_new_cmd(t_cmd *cmd)
 
 void	check_label(t_c *p, t_cmd *c, int i)	
 {
-	char *p2;
+	char 	*p2;
+	t_cmd 	*temp;
 
+	if (c->cmd_s != -42)
+		make_new_cmd(c);
+	temp = c;
+	while (temp)
+		temp = temp->next;
 	if ((p2 = ft_strchr(p->line, ':')))
 		if (*(p2 - 1) != '%')
 			write_label(p, c);

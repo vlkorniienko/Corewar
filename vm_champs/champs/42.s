@@ -138,7 +138,8 @@ l10:	live	%1
 	zjmp	%:l0
 
 
-p1:	zjmp	%:infi
+p1:	
+	zjmp	%:infi
 
         live    %0              # pour boucher l'entree
 copie:  ld      %1,r1
