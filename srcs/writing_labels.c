@@ -22,68 +22,91 @@ void	make_new_argument(t_args *arg)
 		temp = temp->next;
 	temp->next = new;
 	new->next = NULL;
+	new->label = NULL;
+	new->size = 0;
 	new->number = temp->number + 1;
 }
 
-void	check_percent(t_c *p, t_cmd *c, int *i)
+void	check_t_dir(char **string, int i, t_cmd *c, t_args *t)
+{
+	int j;
+
+	j = 0;
+	if (i == 0)
+		if (!g_optab[c->number].args.arg1[1])
+			error(12);
+	if (i == 1)
+		if (!g_optab[c->number].args.arg2[1])
+			error(12);
+	if (i == 2)
+		if (!g_optab[c->number].args.arg3[1])
+			error(12);
+	if (string[i][1] == ':')
+	{
+		write_arg_label(string, i, c, t);
+		return ;
+	}
+	else
+		t->ar_n = ft_atoi(string[j]);
+	ft_printf("t->ar_n == %d\n", t->ar_n);
+}
+
+void	check_arg(char **string, int i, t_cmd *c, int k)
 {
 	t_args *arg;
 	t_args *tmp;
 
 	arg = c->args;
-	if (!arg)
+	if (i > 2)
+		error(12);
+	if (i == 0)
 	{
 		arg = (t_args *)malloc(sizeof(t_args));
 		arg->number = 1;
-		arg->next = NULL; 
+		arg->size = 0;
+		arg->next = NULL;
+		arg->label = NULL;
 	}
 	else
 		make_new_argument(arg);
 	tmp = arg;
 	while (tmp->next)
 		tmp = tmp->next;
-
-}
-
-void	validation_cont(t_c *p, t_cmd *c, int i)
-{
-	while (p->line[i])
-	{
-		if (p->line[i] == '%')
-			check_percent(p, c, &i);
-		// else if (p->line[i] == 'r')
-		// {
-
-		// }
-		// else if (ft_isalpha(p->line[i]))
-		// {
-
-		// }
-		// else
-		// 	error(11);
-		i++;
-	}
+	if (k == 1)
+		check_t_dir(string, i, c, tmp);
+	// else if (k == 2)
+	// 	check_t_reg(string, i, c, tmp);
+	// else if (k == 3)
+	// 	check_t_ind(string, i, c, tmp);
 }
 
 void	validate_command(t_c *p, t_cmd *c)
 {
-	char 	*ptr;
+	char	*ptr;
 	char	*p2;
+	char	**string;
 	int		i;
 
 	i = 0;
 	ptr = ft_strstr(p->line, g_optab[c->number].c_name);
-	if (!(p2 = ft_strchr(p->line, ',')))
+	if (!(p = ft_strchr(p->line, ',')))
 	{
-		while (p->line[i] != *ptr)
-			i++;
-		i += ft_strlen(g_optab[c->number].c_name);
-		while (p->line[i] == ' ' || p->line[i] == '\t')
-			i++;
-		write_one_arg(p, c, i);
+		write_one_arg(ptr, c);
 		return ;
 	}
-	validation_cont(p, c, i);
+	string = ft_strsplit(ptr, ',');
+	while (string[i])
+	{
+		if (string[i][0] == '%')
+			check_arg(string, i, c, 1);
+		else if (string[i][0] == 'r')
+			check_arg(string, i, c, 2);
+		else if (ft_isalpha(string[i][0]) || string[i][0] == '-')
+			check_arg(string, i, c, 3);
+		else
+			error(11);
+		i++;
+	}
 }
 
 void	write_label_str(t_c *p, t_cmd *c, t_label *new, int i)

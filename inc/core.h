@@ -40,7 +40,7 @@ typedef struct		s_cmd
 	t_label			*label;
 	t_args			*args;
 	int				cmd_s;
-	int				codage;
+	unsigned char	codage;
 	struct s_cmd	*next;
 }					t_cmd;
 
@@ -72,5 +72,7 @@ void				make_new_cmd(t_cmd *cmd);
 void				start_label(t_c *p, int k);
 void				write_label_str(t_c *p, t_cmd *c, t_label *new, int i);
 void				validate_command(t_c *p, t_cmd *c);
+void				write_arg_label(char **string, int i, t_cmd *c, t_args *t);
+void	write_one_arg(char *ptr, t_cmd *c);
 
 #endif

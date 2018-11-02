@@ -130,5 +130,9 @@ void	error(int i)
 		ft_printf("%s\n", "Wrong file name");
 	else if (i == 11)
 		ft_printf("%s\n", "Wrong command argument");
+	else if (i == 12)
+		ft_printf("%s\n", "Wrong argument");
+		else if (i == 13)
+		ft_printf("%s\n", "Wrong label string");
 	exit(0);
 }
