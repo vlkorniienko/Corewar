@@ -27,9 +27,10 @@ typedef struct		s_label
 
 typedef struct		s_args
 {
-	unsigned int 	ar_n;
+	unsigned int	ar_n;
 	char			*label;
 	int				number;
+	int				size;
 	struct s_args	*next;
 }					t_args;
 
@@ -37,7 +38,7 @@ typedef struct		s_cmd
 {
 	int				number;
 	t_label			*label;
-	t_arg			*args;
+	t_args			*args;
 	int				cmd_s;
 	int				codage;
 	struct s_cmd	*next;

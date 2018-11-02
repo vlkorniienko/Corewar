@@ -12,9 +12,23 @@
 
 #include "../inc/core.h"
 
+void	make_new_argument(t_args *arg)
+{
+	t_args *new;
+	t_args *temp;
+
+	new = (t_args *)malloc(sizeof(t_args));
+	while (temp)
+		temp = temp->next;
+	temp->next = new;
+	new->next = NULL;
+	new->number = temp->number + 1;
+}
+
 void	check_percent(t_c *p, t_cmd *c, int *i)
 {
 	t_args *arg;
+	t_args *tmp;
 
 	arg = c->args;
 	if (!arg)
@@ -25,6 +39,10 @@ void	check_percent(t_c *p, t_cmd *c, int *i)
 	}
 	else
 		make_new_argument(arg);
+	tmp = arg;
+	while (tmp->next)
+		tmp = tmp->next;
+
 }
 
 void	validation_cont(t_c *p, t_cmd *c, int i)
@@ -33,16 +51,16 @@ void	validation_cont(t_c *p, t_cmd *c, int i)
 	{
 		if (p->line[i] == '%')
 			check_percent(p, c, &i);
-		else if (p->line[i] == 'r')
-		{
+		// else if (p->line[i] == 'r')
+		// {
 
-		}
-		else if (ft_isalpha(p->line[i]))
-		{
+		// }
+		// else if (ft_isalpha(p->line[i]))
+		// {
 
-		}
-		else
-			error(11);
+		// }
+		// else
+		// 	error(11);
 		i++;
 	}
 }
@@ -50,15 +68,21 @@ void	validation_cont(t_c *p, t_cmd *c, int i)
 void	validate_command(t_c *p, t_cmd *c)
 {
 	char 	*ptr;
+	char	*p2;
 	int		i;
 
 	i = 0;
 	ptr = ft_strstr(p->line, g_optab[c->number].c_name);
-	while (p->line[i] != *ptr)
-		i++;
-	i += ft_strlen(g_optab[c->number].c_name);
-	while (p->line[i] == ' ' || p->line[i] == '\t')
-		i++;
+	if (!(p2 = ft_strchr(p->line, ',')))
+	{
+		while (p->line[i] != *ptr)
+			i++;
+		i += ft_strlen(g_optab[c->number].c_name);
+		while (p->line[i] == ' ' || p->line[i] == '\t')
+			i++;
+		write_one_arg(p, c, i);
+		return ;
+	}
 	validation_cont(p, c, i);
 }
 
