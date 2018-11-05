@@ -12,19 +12,20 @@
 
 #include "../inc/core.h"
 
-void	make_new_cmd(t_cmd *cmd)
+t_cmd	*make_new_cmd(t_c *p)
 {
 	t_cmd *new;
 	t_cmd *tmp;
 
 	new = (t_cmd *)malloc(sizeof(t_cmd));
-	tmp = cmd;
-	while (tmp)
+	tmp = p->cmd_p;
+	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new;
 	new->next = NULL;
 	new->label = NULL;
 	new->args = NULL;
+	return (new);
 }
 
 void	check_label(t_c *p, t_cmd *c, int i)
@@ -32,9 +33,9 @@ void	check_label(t_c *p, t_cmd *c, int i)
 	char	*p2;
 	t_cmd	*temp;
 
-	if (c->cmd_s != -42)
-		make_new_cmd(c);
-	temp = c;
+	if (p->cmd_p->cmd_s != -42)
+		c = make_new_cmd(p);
+	temp = p->cmd_p;
 	while (temp->next)
 		temp = temp->next;
 	if ((p2 = ft_strchr(p->line, ':')))
@@ -48,16 +49,16 @@ void	check_label(t_c *p, t_cmd *c, int i)
 		p->tmp = NULL;
 	}
 	ft_printf("command = %s\n", g_optab[i].c_name);
-	if (c->label)
-	{
-		t_label *ddt = c->label;
-		while(ddt)
-		{
-			ft_printf("label = %s\n", ddt->label);
-			ddt = ddt->next;
-		}
-		ft_printf("\n\n");
-	}
+	// if (c->label)
+	// {
+	// 	t_label *ddt = c->label;
+	// 	while(ddt)
+	// 	{
+	// 		ft_printf("label = %s\n", ddt->label);
+	// 		ddt = ddt->next;
+	// 	}
+	// 	ft_printf("\n\n");
+	// }
 	c->number = i;
 	validate_command(p, c);
 }

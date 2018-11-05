@@ -29,13 +29,14 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 {
 	char	*ptr;
 
-	if (!cmd)
+	if (!p->cmd_p)
 	{
 		cmd = (t_cmd *)malloc(sizeof(t_cmd));
 		cmd->cmd_s = -42;
 		cmd->next = NULL;
 		cmd->label = NULL;
 		cmd->args = NULL;
+		p->cmd_p = cmd;
 	}
 	double_check(p, &i);
 	if (p->line[k] == '\t' || p->line[k] == ' ')
@@ -49,8 +50,6 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 	if ((*(ptr + ft_strlen(g_optab[i].c_name)) != '\t') &&
 		(*(ptr + ft_strlen(g_optab[i].c_name)) != ' '))
 		error(8);
-	if (cmd->cmd_s != -42)
-		make_new_cmd(cmd);
 	check_label(p, cmd, i);
 }
 
@@ -108,12 +107,16 @@ void	check_if_finish(t_c *p)
 	}
 }
 
+void	new_function(t_c *p)
+{
+	ft_printf("Here\n");
+}
+
 void	start_reading(t_c *p, char *str)
 {
 	t_cmd	*cmd;
 
 	cmd = NULL;
-	p->cmd_p = cmd;
 	p->fd = open(str, O_RDONLY);
 	if (p->fd < 0)
 		error(1);
@@ -128,4 +131,5 @@ void	start_reading(t_c *p, char *str)
 		else
 			reading_map(p, -1, cmd);
 	}
+	new_function(p);
 }

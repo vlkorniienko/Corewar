@@ -17,8 +17,9 @@ void	make_new_argument(t_args *arg)
 	t_args *new;
 	t_args *temp;
 
+	temp = arg;
 	new = (t_args *)malloc(sizeof(t_args));
-	while (temp)
+	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
 	new->next = NULL;
@@ -29,9 +30,9 @@ void	make_new_argument(t_args *arg)
 
 void	check_t_dir(char **string, int i, t_cmd *c, t_args *t)
 {
-	int j;
+	char *p;
 
-	j = 0;
+	p = string[i];
 	if (i == 0)
 		if (!g_optab[c->number].args.arg1[1])
 			error(12);
@@ -47,7 +48,8 @@ void	check_t_dir(char **string, int i, t_cmd *c, t_args *t)
 		return ;
 	}
 	else
-		t->ar_n = ft_atoi(string[j]);
+		t->ar_n = ft_atoi(p + 1);
+	t->size = g_optab[c->number].l_size;
 	ft_printf("t->ar_n == %d\n", t->ar_n);
 }
 
@@ -56,7 +58,6 @@ void	check_arg(char **string, int i, t_cmd *c, int k)
 	t_args *arg;
 	t_args *tmp;
 
-	arg = c->args;
 	if (i > 2)
 		error(12);
 	if (i == 0)
@@ -66,18 +67,19 @@ void	check_arg(char **string, int i, t_cmd *c, int k)
 		arg->size = 0;
 		arg->next = NULL;
 		arg->label = NULL;
+		c->args = arg;
 	}
 	else
-		make_new_argument(arg);
-	tmp = arg;
+		make_new_argument(c->args);
+	tmp = c->args;
 	while (tmp->next)
 		tmp = tmp->next;
 	if (k == 1)
 		check_t_dir(string, i, c, tmp);
-	// else if (k == 2)
-	// 	check_t_reg(string, i, c, tmp);
-	// else if (k == 3)
-	// 	check_t_ind(string, i, c, tmp);
+	else if (k == 2)
+		check_t_reg(string, i, c, tmp);
+	else if (k == 3)
+		check_t_ind(string, i, c, tmp);
 }
 
 void	validate_command(t_c *p, t_cmd *c)
@@ -89,14 +91,18 @@ void	validate_command(t_c *p, t_cmd *c)
 
 	i = 0;
 	ptr = ft_strstr(p->line, g_optab[c->number].c_name);
-	if (!(p = ft_strchr(p->line, ',')))
+	if (!(p2 = ft_strchr(p->line, ',')))
 	{
 		write_one_arg(ptr, c);
 		return ;
 	}
+	ptr = ptr + ft_strlen(g_optab[c->number].c_name);
+	while (*ptr == ' ' || *ptr == '\t')
+	 	ptr++;
 	string = ft_strsplit(ptr, ',');
 	while (string[i])
 	{
+		printf("character = %c\n", string[i][0]);
 		if (string[i][0] == '%')
 			check_arg(string, i, c, 1);
 		else if (string[i][0] == 'r')

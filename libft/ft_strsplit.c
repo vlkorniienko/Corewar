@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msakovyc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vkorniie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/30 22:54:44 by msakovyc          #+#    #+#             */
-/*   Updated: 2018/04/02 20:15:12 by msakovyc         ###   ########.fr       */
+/*   Created: 2018/03/29 19:03:13 by vkorniie          #+#    #+#             */
+/*   Updated: 2018/04/02 13:19:31 by vkorniie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 static int		count_words(const char *s, char c)
 {
@@ -104,12 +104,3 @@ char			**ft_strsplit(char const *s, char c)
 	}
 	return (0);
 }
-
-
-
-
-
-
-
-
-

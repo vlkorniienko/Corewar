@@ -68,11 +68,12 @@ int					empty_string(t_c *p, int i);
 int					check_point(t_c *p, int k, int c);
 void				check_label(t_c *p, t_cmd *c, int i);
 void				write_label(t_c *p, t_cmd *c);
-void				make_new_cmd(t_cmd *cmd);
+t_cmd				*make_new_cmd(t_c *p);
 void				start_label(t_c *p, int k);
 void				write_label_str(t_c *p, t_cmd *c, t_label *new, int i);
 void				validate_command(t_c *p, t_cmd *c);
 void				write_arg_label(char **string, int i, t_cmd *c, t_args *t);
-void	write_one_arg(char *ptr, t_cmd *c);
+void				write_one_arg(char *ptr, t_cmd *c);
+void				check_t_reg(char **string, int i, t_cmd *c, t_args *t);
 
 #endif

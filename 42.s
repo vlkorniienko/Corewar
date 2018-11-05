@@ -4,8 +4,8 @@
 .comment        "Just a basic Winner Program"
 #.extend
 
-entree:	live	%42		# entree
-# 	ld	%0,r5
+entree:	live	%:556		# entree
+	ld	%10,r225,80
 # 	ld	%0,r5
 # 	zjmp	%:bite
 
