@@ -49,7 +49,7 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 	ptr = ft_strstr(p->line, g_optab[i].c_name);
 	if ((*(ptr + ft_strlen(g_optab[i].c_name)) != '\t') &&
 		(*(ptr + ft_strlen(g_optab[i].c_name)) != ' '))
-		error(8);
+		double_check_label(p);
 	check_label(p, cmd, i);
 }
 

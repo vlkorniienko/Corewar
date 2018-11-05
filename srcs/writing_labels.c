@@ -102,7 +102,7 @@ void	validate_command(t_c *p, t_cmd *c)
 	string = ft_strsplit(ptr, ',');
 	while (string[i])
 	{
-		printf("character = %c\n", string[i][0]);
+		ft_printf("character = %c\n", string[i][0]);
 		if (string[i][0] == '%')
 			check_arg(string, i, c, 1);
 		else if (string[i][0] == 'r')

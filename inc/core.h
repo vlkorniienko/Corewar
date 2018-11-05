@@ -75,5 +75,8 @@ void				validate_command(t_c *p, t_cmd *c);
 void				write_arg_label(char **string, int i, t_cmd *c, t_args *t);
 void				write_one_arg(char *ptr, t_cmd *c);
 void				check_t_reg(char **string, int i, t_cmd *c, t_args *t);
+void				check_t_ind(char **string, int i, t_cmd *c, t_args *t);
+void				double_check_label(t_c *p);
+int					is_str_label(t_c *p);
 
 #endif

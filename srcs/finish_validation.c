@@ -12,7 +12,15 @@
 
 #include "../inc/core.h"
 
-void	check_t_reg(char **string, int i, t_cmd *c, t_args *t)
+void	double_check_label(t_c *p)
+{
+	if (!is_str_label(p))
+		error(8);
+	else
+		start_label(p, 0);
+}
+
+void	check_t_ind(char **string, int i, t_cmd *c, t_args *t)
 {
 	if (i == 0)
 		if (!g_optab[c->number].args.arg1[0])
