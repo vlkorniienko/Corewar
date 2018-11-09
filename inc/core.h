@@ -82,7 +82,7 @@ int					empty_string(t_c *p, int i);
 */
 int					check_point(t_c *p, int k, int c);
 void				read_command(t_c *p, int i, int k, t_cmd *cmd);
-int					is_command_nolabel(t_c *ps, char *s, int i, int k);
+int					is_command_nolabel(t_c *ps, int i, int k);
 void				calc_codage(t_c *p, t_cmd *c);
 
 /*
@@ -97,7 +97,7 @@ t_cmd				*make_new_cmd(t_c *p);
 ** make command list
 */
 void				write_label(t_c *p, t_cmd *c);
-void				validate_command(t_c *p, t_cmd *c, int j, char *pointer);
+void				validate_command(t_c *p, t_cmd *c, int j, int k);
 void				write_one_arg(char *ptr, t_cmd *c);
 
 /*
@@ -118,8 +118,14 @@ void				new_function(t_c *p);
 /*
 ** write in file
 */
-void	find_label_instruct(t_c *p);
-void	count_comma(t_c *p, int j);
+void				find_label_instruct(t_c *p);
+void				count_comma(t_c *p, int j);
+int					if_not_cmd(char *ptr, t_c *p, int i, int k);
 
+/*
+** binary
+*/
+int					comma_existing(t_c *p, int i);
+int					file_creator(t_c *file);
 
 #endif

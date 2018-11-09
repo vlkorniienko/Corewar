@@ -57,30 +57,22 @@ void	write_one_arg(char *ptr, t_cmd *c)
 		one_arg_ind(arg, c, ptr);
 }
 
-void	validate_command(t_c *p, t_cmd *c, int j, char *pointer)
+void	validate_command(t_c *p, t_cmd *c, int j, int k)
 {
 	char	*ptr;
-	char	*p2;
 	char	**string;
 	int		i;
 
 	i = 0;
 	p->counter = 0;
 	ptr = ft_strstr(p->line, g_optab[c->number].c_name);
-	if (p->checker2)
+	if (p->checker2 == 42)
 	{
-		if ((pointer = ft_strstr(ptr + 1, g_optab[c->number].c_name)))
-		{
-			//free(ptr);
-			ptr = pointer;
-		}
-		if ((pointer = ft_strstr(ptr + 1, g_optab[c->number].c_name)))
-		{
-			//free(ptr);
-			ptr = pointer;
-		}
+		while (ptr[k] != ':')
+			k++;
+		ptr = ft_strstr(ptr + k, g_optab[c->number].c_name);
 	}
-	if (!(p2 = ft_strchr(p->line, ',')))
+	if (!comma_existing(p, 0))
 	{
 		write_one_arg(ptr, c);
 		return ;

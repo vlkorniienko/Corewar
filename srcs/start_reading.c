@@ -46,6 +46,7 @@ void	reading_map(t_c *p, int i, t_cmd *c)
 			error(7);
 	while (++i < 17)
 	{
+		p->checker2 = 0;
 		if (i == 16 && !(p2 = ft_strchr(p->line, ':')))
 			error(6);
 		if (i == 16 && (p2 = ft_strchr(p->line, ':')))
@@ -55,7 +56,7 @@ void	reading_map(t_c *p, int i, t_cmd *c)
 		}
 		if (ft_strstr(p->line, g_optab[i].c_name))
 		{
-			if ((is_command_nolabel(p, p->line, i, 0)))
+			if ((is_command_nolabel(p, i, 0)))
 			{
 				read_command(p, i, 0, c);
 				break ;
@@ -94,7 +95,6 @@ void	start_reading(t_c *p, char *str)
 	while (get_next_line(p->fd, &(p->line)) > 0)
 	{
 		ft_printf("line ---- %s\n", p->line);
-		p->checker2 = 0;
 		if (p->line[0] == '#' || strstr(p->line, ".name"))
 			free(p->line);
 		else if (strstr(p->line, ".comment"))

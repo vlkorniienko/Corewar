@@ -1,0 +1,3 @@
+/Users/vkorniie/core_github/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/vkorniie/core_github/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/vkorniie/core_github/cmake-build-debug/CMakeFiles/core_github.dir

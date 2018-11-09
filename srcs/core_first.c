@@ -79,7 +79,9 @@ void	open_file(t_c *ptr, char *str)
 
 	if ((p = ft_strchr(str, '.')))
 	{
-		if (*(p + 1) == 's' && *(p + 2) == '\0')
+		while (*p)
+			p++;
+		if (*(p - 1) == 's' && *(p - 2) == '.')
 		{
 			ptr->fd = open(str, O_RDONLY);
 			if (ptr->fd < 0)
@@ -94,43 +96,6 @@ void	open_file(t_c *ptr, char *str)
 		error(10);
 }
 
-void	reverse(int fd, unsigned char *n, int count)
-{
-	while (count--)
-		write(fd, n + count, 1);
-}
-
-int		file_creator(t_c *file)
-{
-	int				fd;
-	unsigned int	magic;
-	t_cmd			*lst;
-
-	magic = COREWAR_EXEC_MAGIC;
-	fd = open(file->f_name, O_WRONLY | O_CREAT, 0644);
-	reverse(fd, (unsigned char*)&magic, 4);
-	write(fd, &file->player_n, PROG_NAME_LENGTH);
-	magic = 0;
-	write(fd, &magic, 4);
-	reverse(fd, (unsigned char*)&file->size, 4);
-	write(fd, &file->comment, COMMENT_LENGTH);
-	write(fd, &magic, 4);
-	lst = file->cmd_p;
-	while (lst)
-	{
-		write(fd, &lst->cmd_s, 1);
-		(lst->codage) ? reverse(fd, (unsigned char*)&lst->codage, 1) : 0;
-		while (lst->args)
-		{
-			(lst->args->size) ? reverse(fd, (unsigned char*)&lst->args->ar_n, lst->args->size) : 0;
-			lst->args = lst->args->next;
-		}
-		lst = lst->next;
-	}
-	close(fd);
-	return 1;
-}
-
 int		main(int argc, char **argv)
 {
 	t_c *ptr;
@@ -141,6 +106,6 @@ int		main(int argc, char **argv)
 		open_file(ptr, argv[1]);
 	else
 		ft_printf("%s\n", "Usage: ./asm <sourcefile.s>");
-	//file_creator(ptr);
+	file_creator(ptr);
 	return (0);
 }

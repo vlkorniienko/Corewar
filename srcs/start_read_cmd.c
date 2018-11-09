@@ -61,24 +61,22 @@ void	calc_codage(t_c *p, t_cmd *c)
 	}
 }
 
-int		is_command_nolabel(t_c *p, char *s, int i, int k)
+int		is_command_nolabel(t_c *p, int i, int k)
 {
 	char	*ptr;
 
 	k = -1;
 	ptr = ft_strstr(p->line, g_optab[i].c_name);
-	if (*(ptr + ft_strlen(g_optab[i].c_name)) == ':' || 
-		*(ptr + ft_strlen(g_optab[i].c_name)) == '_')
-	{
-		p->checker2 = 1;
-		return(ft_strstr(ptr + 1, g_optab[i].c_name) != NULL);
-	}
+	if ((if_not_cmd(ptr, p, i, 0)))
+		return (1);
+	if (p->checker2 == 10)
+		return (0);
 	if (*(ptr + ft_strlen(g_optab[i].c_name)) == '\0'
 		|| *(ptr + ft_strlen(g_optab[i].c_name)) == ',')
 		return (0);
 	if (*(ptr + ft_strlen(g_optab[i].c_name)) != ' '
 		&& *(ptr + ft_strlen(g_optab[i].c_name)) != '\t')
-		return (0);
+		return (0);// zjmp!!!!!!
 	ptr = ptr + ft_strlen(g_optab[i].c_name);
 	while (ptr[++k] )
 	{

@@ -91,13 +91,14 @@ void	new_function(t_c *p)
 	unsigned int	temp;
 
 	point = p->cmd_p;
-	while (point->next)
+	temp = 0;
+	while (point)
 	{
 		point->size_before = temp;
-		temp += point->next->cmd_s;
+		if (point->next)
+			temp += point->next->cmd_s;
 		point = point->next;
 	}
-	point->size_before = temp;
 	ft_printf("Finalochka\n");
 	find_label_instruct(p);
 }
