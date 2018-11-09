@@ -67,8 +67,12 @@ int		is_command_nolabel(t_c *p, char *s, int i, int k)
 
 	k = -1;
 	ptr = ft_strstr(p->line, g_optab[i].c_name);
-	if (*(ptr + ft_strlen(g_optab[i].c_name)) == ':')
+	if (*(ptr + ft_strlen(g_optab[i].c_name)) == ':' || 
+		*(ptr + ft_strlen(g_optab[i].c_name)) == '_')
+	{
+		p->checker2 = 1;
 		return(ft_strstr(ptr + 1, g_optab[i].c_name) != NULL);
+	}
 	if (*(ptr + ft_strlen(g_optab[i].c_name)) == '\0'
 		|| *(ptr + ft_strlen(g_optab[i].c_name)) == ',')
 		return (0);
@@ -107,8 +111,6 @@ int		check_point(t_c *p, int k, int c)
 
 void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 {
-	char	*ptr;
-
 	if (!p->cmd_p)
 	{
 		cmd = (t_cmd *)malloc(sizeof(t_cmd));
@@ -125,6 +127,5 @@ void	read_command(t_c *p, int i, int k, t_cmd *cmd)
 		if (p->line[k] == '#' || p->line[k] == ';')
 			return ;
 	}
-	ptr = ft_strstr(p->line, g_optab[i].c_name);
 	check_label(p, cmd, i);
 }

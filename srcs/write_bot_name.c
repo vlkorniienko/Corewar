@@ -139,7 +139,7 @@ void	error(int i)
 		ft_printf("%s\n", "Wrong file name");
 	else if (i == 11)
 		ft_printf("%s\n", "Wrong command argument");
-	// else if (i > 11)
-	// 	error2(i);
+	else if (i > 11)
+		error2(i);
 	exit(0);
 }

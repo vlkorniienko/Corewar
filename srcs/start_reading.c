@@ -71,6 +71,8 @@ int		empty_string(t_c *p, int i)
 	c = 0;
 	while (p->line[i])
 	{
+		if ((p->line[i] == '#' || p->line[i] == ';') && c == 0)
+			return (1);
 		if (p->line[i] != ' ' && p->line[i] != '\t')
 			c++;
 		i++;
@@ -92,6 +94,7 @@ void	start_reading(t_c *p, char *str)
 	while (get_next_line(p->fd, &(p->line)) > 0)
 	{
 		ft_printf("line ---- %s\n", p->line);
+		p->checker2 = 0;
 		if (p->line[0] == '#' || strstr(p->line, ".name"))
 			free(p->line);
 		else if (strstr(p->line, ".comment"))

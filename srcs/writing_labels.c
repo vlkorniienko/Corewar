@@ -46,6 +46,7 @@ void	check_label(t_c *p, t_cmd *c, int i)
 {
 	char	*p2;
 	t_cmd	*temp;
+	char	*pointer;
 
 	if (p->cmd_p->cmd_s != -42)
 		c = make_new_cmd(p);
@@ -64,7 +65,7 @@ void	check_label(t_c *p, t_cmd *c, int i)
 	}
 	c->number = i;
 	calc_codage(p, c);
-	validate_command(p, c, -1);
+	validate_command(p, c, -1, pointer);
 }
 
 int		is_str_label(t_c *p)

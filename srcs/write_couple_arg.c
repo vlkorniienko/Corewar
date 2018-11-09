@@ -55,7 +55,7 @@ void	check_t_reg(char **string, int i, t_cmd *c, t_args *t)
 	if (i == 2)
 		if (!g_optab[c->number].args.arg3[0])
 			error(12);
-	t->ar_n = ft_atoi(p + 1);
+	t->ar_n = ft_atoi(p + 1 + c->char_c);
 	t->size = 1;
 }
 
@@ -73,13 +73,14 @@ void	check_t_dir(char **string, int i, t_cmd *c, t_args *t)
 	if (i == 2)
 		if (!g_optab[c->number].args.arg3[1])
 			error(12);
-	if (string[i][1] == ':')
+	ft_printf(" char = %c\n", string[i][c->char_c + 1]);
+	if (string[i][c->char_c + 1] == ':')
 	{
 		write_arg_label(string[i], 0, c, t);
 		return ;
 	}
 	else
-		t->ar_n = ft_atoi(p + 1);
+		t->ar_n = ft_atoi(p + 1 + c->char_c);
 	t->size = g_optab[c->number].l_size;
 	ft_printf("t->ar_n == %d\n", t->ar_n);
 }
@@ -113,24 +114,31 @@ void	check_arg(char **string, int i, t_cmd *c, int k)
 		check_t_ind(string, i, c, tmp);
 }
 
-void	start_searching_signs(char **string, int i, t_cmd *c)
+void	start_search_signs(t_c *p, char **string, int i, t_cmd *c)
 {
-	int l;
+	int 	l;
+	t_args	*temp;
 
 	while (string[i])
 	{
 		l = 0;
 		while (string[i][l] == ' ' || string[i][l] == '\t')
 			l++;
-		ft_printf("%c\n", string[i][l]);
+		c->char_c = l;
 		if (string[i][l] == '%')
 			check_arg(string, i, c, 1);
 		else if (string[i][l] == 'r')
 			check_arg(string, i, c, 2);
-		else if (ft_isdigit(string[i][l]) || string[i][l] == '-' || string[i][l] == ':')
+		else if (ft_isdigit(string[i][l]) || string[i][l] == '-'
+			|| string[i][l] == ':')
 			check_arg(string, i, c, 3);
 		else
 			error(11);
 		i++;
 	}
+	temp = c->args;
+	while (temp->next)
+		temp = temp->next;
+	if ((i - 1) != p->counter)
+		error2(14);
 }

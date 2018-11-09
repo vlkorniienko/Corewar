@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/vkorniie/core_github/inc/core.h
+../libft/includes/libft.h
+/Users/vkorniie/core_github/libft/includes/libft.h
+op.h
+/Users/vkorniie/core_github/inc/op.h
+fcntl.h
+-
+
+/Users/vkorniie/core_github/inc/op.h
+
+/Users/vkorniie/core_github/libft/includes/libft.h
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+fcntl.h
+-
+stdarg.h
+-
+
+/Users/vkorniie/core_github/srcs/make_cmd_list.c
+../inc/core.h
+/Users/vkorniie/core_github/inc/core.h
+
+/Users/vkorniie/core_github/srcs/start_reading.c
+../inc/core.h
+/Users/vkorniie/core_github/inc/core.h
+

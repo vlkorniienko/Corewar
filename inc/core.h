@@ -40,7 +40,9 @@ typedef struct		s_cmd
 	t_label			*label;
 	t_args			*args;
 	int				cmd_s;
+	unsigned int 	size_before;
 	unsigned char	codage;
+	int				char_c;
 	struct s_cmd	*next;
 }					t_cmd;
 
@@ -56,6 +58,8 @@ typedef struct		s_c
 	char			*c;
 	char			flag;
 	int				counter;
+	unsigned int	size;
+	char			checker2;
 	t_label			*tmp;
 	t_cmd			*cmd_p;
 }					t_c;
@@ -93,14 +97,14 @@ t_cmd				*make_new_cmd(t_c *p);
 ** make command list
 */
 void				write_label(t_c *p, t_cmd *c);
-void				validate_command(t_c *p, t_cmd *c, int j);
+void				validate_command(t_c *p, t_cmd *c, int j, char *pointer);
 void				write_one_arg(char *ptr, t_cmd *c);
 
 /*
 ** write couple arg
 */
 void				write_arg_label1(char *s, t_cmd *c, t_args *t, int i);
-void				start_searching_signs(char **string, int i, t_cmd *c);
+void				start_search_signs(t_c *p, char **string, int i, t_cmd *c);
 
 /*
 ** finish validation
@@ -110,5 +114,12 @@ void				make_new_argument(t_args *arg);
 void				check_t_ind(char **string, int i, t_cmd *c, t_args *t);
 void				error2(int i);
 void				new_function(t_c *p);
+
+/*
+** write in file
+*/
+void	find_label_instruct(t_c *p);
+void	count_comma(t_c *p, int j);
+
 
 #endif

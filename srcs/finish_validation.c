@@ -18,7 +18,8 @@ void	write_arg_label(char *string, int i, t_cmd *c, t_args *t)
 	int k;
 
 	k = 0;
-	j = (i == 0) ? 2 : 1;
+	j = c->char_c;
+	j += (i != 0) ? 1 : 2;
 	while (ft_isalnum(string[j]) || string[j] == '_')
 		j++;
 	t->label = (char *)malloc(sizeof(char) * j);
@@ -28,7 +29,8 @@ void	write_arg_label(char *string, int i, t_cmd *c, t_args *t)
 			error(13);
 		j++;
 	}
-	j = 2;
+	j = c->char_c;
+	j += (i != 0) ? 1 : 2;
 	while (ft_isalnum(string[j]) || string[j] == '_')
 		t->label[k++] = string[j++];
 	t->label[k] = '\0';
@@ -62,7 +64,7 @@ void	check_t_ind(char **string, int i, t_cmd *c, t_args *t)
 	if (i == 2)
 		if (!g_optab[c->number].args.arg3[2])
 			error(12);
-	if (string[i][0] == ':')
+	if (string[i][c->char_c] == ':')
 	{
 		write_arg_label(string[i], 1, c, t);
 		return ;
@@ -77,10 +79,25 @@ void	error2(int i)
 		ft_printf("%s\n", "Wrong argument");
 	else if (i == 13)
 		ft_printf("%s\n", "Wrong label string");
+	else if (i == 14)
+		ft_printf("%s\n", "Error to much comma in string");
+	else if (i == 15)
+		ft_printf("%s\n", "Error: no such label");
 }
 
 void	new_function(t_c *p)
 {
-	ft_printf("Finalochka\n");
-}
+	t_cmd 			*point;
+	unsigned int	temp;
 
+	point = p->cmd_p;
+	while (point->next)
+	{
+		point->size_before = temp;
+		temp += point->next->cmd_s;
+		point = point->next;
+	}
+	point->size_before = temp;
+	ft_printf("Finalochka\n");
+	find_label_instruct(p);
+}

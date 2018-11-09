@@ -14,15 +14,16 @@
 
 void	one_arg_ind(t_args *arg, t_cmd *c, char *p)
 {
-	if (*(p + 1) != ':')
+	if (*p == ':')
+		write_arg_label1(p + 1, c, arg, 1);
+	else if (*(p + 1) != ':')
 	{
 		if (!g_optab[c->number].args.arg1[1])
 			error(12);
 		arg->ar_n = ft_atoi(p + 1);
 		arg->size = g_optab[c->number].l_size;
+		arg->label = NULL;
 	}
-	else if (*p == ':')
-		write_arg_label1(p + 1, c, arg, 1);
 	else
 		write_arg_label1(p + 2, c, arg, 0);
 }
@@ -56,7 +57,7 @@ void	write_one_arg(char *ptr, t_cmd *c)
 		one_arg_ind(arg, c, ptr);
 }
 
-void	validate_command(t_c *p, t_cmd *c, int j)
+void	validate_command(t_c *p, t_cmd *c, int j, char *pointer)
 {
 	char	*ptr;
 	char	*p2;
@@ -66,23 +67,30 @@ void	validate_command(t_c *p, t_cmd *c, int j)
 	i = 0;
 	p->counter = 0;
 	ptr = ft_strstr(p->line, g_optab[c->number].c_name);
+	if (p->checker2)
+	{
+		if ((pointer = ft_strstr(ptr + 1, g_optab[c->number].c_name)))
+		{
+			//free(ptr);
+			ptr = pointer;
+		}
+		if ((pointer = ft_strstr(ptr + 1, g_optab[c->number].c_name)))
+		{
+			//free(ptr);
+			ptr = pointer;
+		}
+	}
 	if (!(p2 = ft_strchr(p->line, ',')))
 	{
 		write_one_arg(ptr, c);
 		return ;
 	}
-	while (p->line[++j])
-	{
-		if (p->line[j] == ',')
-			p->counter++;
-		if (p->line[j] == ',' && p->line[j + 1] == ',')
-			error(8);
-	}
+	count_comma(p, j);
 	ptr = ptr + ft_strlen(g_optab[c->number].c_name);
 	while (*ptr == ' ' || *ptr == '\t')
 	 	ptr++;
 	string = ft_strsplit(ptr, ',');
-	start_searching_signs(string, i, c);
+	start_search_signs(p, string, i, c);
 }
 
 void	write_label_str(t_c *p, t_cmd *c, t_label *new, int i)
