@@ -1,0 +1,3 @@
+/Users/msakovyc/Downloads/core_together/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/msakovyc/Downloads/core_together/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/msakovyc/Downloads/core_together/cmake-build-debug/CMakeFiles/core_together.dir
