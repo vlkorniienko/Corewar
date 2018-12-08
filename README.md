@@ -17,3 +17,11 @@
 
 ##### Example output
 ![](https://github.com/vlkorniienko/Corewar/blob/master/Binary%20file.png)
+
+### Usage
+```
+git clone https://github.com/vlkorniienko/Corewar
+cd Corewar
+make
+./asm 
+```
