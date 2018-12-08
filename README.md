@@ -14,3 +14,6 @@
 
 ##### Example of list commands
 ![](https://github.com/vlkorniienko/Corewar/blob/master/Command%20list.png)
+
+##### Example output
+![](https://github.com/vlkorniienko/Corewar/blob/master/Binary%20file.png)
