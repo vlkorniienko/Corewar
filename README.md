@@ -23,5 +23,9 @@
 git clone https://github.com/vlkorniienko/Corewar
 cd Corewar
 make
-./asm 
+./asm V3M.s(to make file with .cor extension)
+./corewar -v V3M.cor vm_champs/champs/Gagnant.cor
 ```
+
+#### Game example
+![](https://github.com/vlkorniienko/Corewar/blob/master/Game%20example.png)
