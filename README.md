@@ -13,3 +13,4 @@
 ### In this project my part of job was assembler(the goal is to make binary files for corewar virtual machine from list of assembler commands).
 
 ##### Example of list commands
+![](https://github.com/vlkorniienko/Corewar/blob/master/Command%20list.png)
